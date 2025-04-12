@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>다솜 랜덤 문제 풀이</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen;
+      background: #ffffff;
+      color: #333;
+      padding: 20px;
+      max-width: 100%;
+    }
+    h2 {
+      font-size: 1.5em;
+      text-align: center;
+    }
+    .question-box {
+      margin: 20px 0;
+    }
+    .choices button {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #f5f5f5;
+      text-align: left;
+      cursor: pointer;
+    }
+    .button {
+      display: inline-block;
+      margin: 10px 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+    }
+    .explanation {
+      margin-top: 20px;
+      background: #f0f8ff;
+      padding: 10px;
+      border-left: 4px solid #0077cc;
+    }
+  </style>
+</head>
+<body>
+  <h2>랜덤 문제 풀이</h2>
+  <div id="app">
+    <div class="question-box">
+      <p id="question"></p>
+      <div id="choices" class="choices"></div>
+      <div id="explanation" class="explanation" style="display:none;"></div>
+    </div>
+    <button class="button" onclick="showAnswer()">정답 보기</button>
+    <button class="button" onclick="nextQuestion()">다음 문제</button>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "Which of the statements is wrong concerning the well-fed state?",
+        choices: [
+          "Most of the covalently regulated enzymes are at nonphosphorylated state",
+          "Hepatic fructose-2,6-biphosphate is elevated",
+          "Acetyl CoA is not elevated",
+          "Insulin stimulates glucose uptake in liver",
+          "Activates glucokinase"
+        ],
+        answer: 2,
+        explanation: "Well-fed 상태에서는 인슐린 증가로 인해 glycolysis, glycogenesis가 증가하고, Acetyl CoA 또한 증가합니다. 따라서 'Acetyl CoA is not elevated'는 틀린 문장입니다."
+      },
+      {
+        question: "The rate-limiting step of cholesterol synthesis is the enzyme 3-hydroxy-3-methylglutaryl coenzyme A (_____) reductase that synthesizes mevalonate starting from HMG-CoA.",
+        choices: ["HMG-CoA reductase"],
+        answer: 0,
+        explanation: "이 과정의 rate-limiting enzyme은 HMG-CoA reductase입니다."
+      },
+      {
+        question: "Which one of the following tissues is glucose transporter into the cell enhanced by insulin?",
+        choices: [
+          "Brain",
+          "Lens",
+          "RBC",
+          "Adipose tissue",
+          "Liver"
+        ],
+        answer: 3,
+        explanation: "GLUT4는 adipose tissue, skeletal muscle, heart muscle에 분포되어 있고, insulin에 의해 조절됩니다."
+      },
+      {
+        question: "A 39-year-old woman is brought to the emergency room for dizziness after fasting and drinking. Orange juice relieved her symptoms. Which of the following is most likely elevated?",
+        choices: [
+          "blood glucose greater than 70 mg/dl",
+          "elevated insulin",
+          "elevated glucagon",
+          "elevated liver glycogen",
+          "presence of an insulinoma"
+        ],
+        answer: 2,
+        explanation: "알코올 유발 저혈당 상황에서 glucagon이 보상적으로 증가합니다."
+      },
+      {
+        question: "Nascent VLDL are produced in the liver and composed of TG and apoB-100. From HDL, what does it receive to become mature?",
+        choices: ["Apo C-II and Apo E"],
+        answer: 0,
+        explanation: "HDL에서 Apo C-II와 Apo E를 받아 mature VLDL이 됩니다."
+      }
+    ];
+
+    let currentQuestion = {};
+
+    function nextQuestion() {
+      const randomIndex = Math.floor(Math.random() * questions.length);
+      currentQuestion = questions[randomIndex];
+      document.getElementById("question").innerText = currentQuestion.question;
+      document.getElementById("choices").innerHTML = "";
+      currentQuestion.choices.forEach((choice, index) => {
+        const btn = document.createElement("button");
+        btn.innerText = `${index + 1}. ${choice}`;
+        btn.onclick = () => {
+          if (index === currentQuestion.answer) {
+            btn.style.backgroundColor = "#c8e6c9";
+          } else {
+            btn.style.backgroundColor = "#ffcdd2";
+          }
+        };
+        document.getElementById("choices").appendChild(btn);
+      });
+      document.getElementById("explanation").style.display = "none";
+      document.getElementById("explanation").innerText = "";
+    }
+
+    function showAnswer() {
+      document.getElementById("explanation").innerText = `정답: ${currentQuestion.choices[currentQuestion.answer]}
+
+설명: ${currentQuestion.explanation}`;
+      document.getElementById("explanation").style.display = "block";
+    }
+
+    nextQuestion();
+  </script>
+</body>
+</html>
