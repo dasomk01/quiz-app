@@ -1,0 +1,42 @@
+[
+  {
+    "id": 21,
+    "source": "2023 야마 21번",
+    "question": "Mammals lack the enzyme to introduce double bonds at carbon atoms beyond C-9 in fatty acid chain. Hence, mammals cannot synthesize linoleate and (        ). They must be consumed by diet.",
+    "choices": [
+      "Oleic acid",
+      "Palmitic acid",
+      "Linolenic acid",
+      "Arachidonic acid",
+      "Stearic acid"
+    ],
+    "answer": 2,
+    "explanation": {
+      "1": "X — Oleic acid (18:1, Δ9)은 체내에서 합성 가능.",
+      "2": "X — Palmitic acid (16:0)도 체내 합성 가능.",
+      "3": "O — Linolenic acid는 C9 이후 double bond를 가지므로 체내 합성 불가능.",
+      "4": "X — Arachidonic acid는 linoleic acid로부터 합성 가능.",
+      "5": "X — Stearic acid는 포화 지방산으로 합성 가능."
+    }
+  },
+  {
+    "id": 22,
+    "source": "2023 야마 22번",
+    "question": "The major end product of the fatty acid synthase is (        ). (        ) is the two-carbon donor in elongation stage.",
+    "choices": [
+      "Palmitate, acetyl-CoA",
+      "Palmitate, malonyl-CoA",
+      "Stearate, malonyl-CoA",
+      "Stearate, acetyl-CoA",
+      "Palmitate, citrate"
+    ],
+    "answer": 1,
+    "explanation": {
+      "1": "O — Palmitate는 FA synthesis의 최종 산물이며, malonyl-CoA가 2C donor 역할을 함.",
+      "2": "X — acetyl-CoA는 초기 primer 역할이지 elongation 단계의 donor가 아님.",
+      "3": "X — Stearate는 elongation으로 생성될 수 있으나 최종 산물은 아님.",
+      "4": "X — 둘 다 틀림.",
+      "5": "X — citrate는 미토콘드리아-세포질 이동에 관여."
+    }
+  }
+]
